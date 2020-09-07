@@ -7,7 +7,7 @@ $(function(){
       
       let query = $('#inputProfile').val();
       let output = ""
-      axios.get(url).then(function (response) {
+      axios.get(url, {crossdomain:true}).then(function (response) {
   
         let results = response.data;
         for (x of results) {
