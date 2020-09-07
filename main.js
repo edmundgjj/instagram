@@ -1,6 +1,6 @@
 $(function(){
 
-    let url = 'https://instagram-2698.restdb.io/rest/userdata';
+    let url = 'https://instagram-2698.restdb.io/rest/userdata?key=22631469345172666884';
   
     $('#submitInstagram').on('click',function(e){
       e.preventDefault();
