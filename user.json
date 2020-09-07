@@ -1,0 +1,10 @@
+var user = [{
+    "id" : "123345",
+    "username" :"edmund"
+},
+{
+    "id" : "222222",
+    "username" :"doggy"
+}
+    
+];
