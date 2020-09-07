@@ -1,6 +1,6 @@
 $(function(){
 
-    let url = 'https://instagram-2698.restdb.io/rest/userdata?key=22631469345172666884';
+    let url = 'https://instagram-2698.restdb.io/userdata?key=5f50da4dc5e01c1e033b8be4';
   
     $('#submitInstagram').on('click',function(e){
       e.preventDefault();
@@ -16,6 +16,7 @@ $(function(){
                 } 
             }
         })
-    $("#userid").append(`${output}`)
+    $('#userid').empty();
+    $("#userid").append(`${output}`);
     })
 })
