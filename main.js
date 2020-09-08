@@ -1,22 +1,36 @@
-$(function(){
+$(function () {
+  $("#submitInstagram").on("click", function (e) {
+    e.preventDefault();
 
-    let url = 'https://cors-anywhere.herokuapp.com/https://instagram-2698.restdb.io/userdata?key=5f50da4dc5e01c1e033b8be4';
-  
-    $('#submitInstagram').on('click',function(e){
-      e.preventDefault();
-      
-      let query = $('#inputProfile').val();
-      let output = ""
-      axios.get(url, {crossdomain:true}).then(function (response) {
-  
-        let results = response.data;
-        for (x of results) {
-            if(x["username"] == query) {
-                output = x["id"]
-                } 
-            }
-        })
-    $('#userid').empty();
-    $("#userid").append(`${output}`);
-    })
-})
+    let query = $("#inputProfile").val();
+    let output = "";
+    let nameOutput = "";
+    $.ajax({
+      async: true,
+      crossDomain: true,
+      url: "https://instagram-2698.restdb.io/rest/userdata",
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        "x-apikey": "5f50da4dc5e01c1e033b8be4",
+        "cache-control": "no-cache",
+      },
+      type: "GET",
+      success: function (data) {
+        console.log(data);
+        for (x of data) {
+          console.log(x);
+          if (x["username"] == query) {
+            output = x["id"];
+            nameOutput = query;
+          } else {
+            console.log("not found");
+          }
+          console.log(output);
+        }
+        $("#userid").empty();
+        $("#userid").append(`${nameOutput}: ${output}`);
+      },
+    });
+  });
+});
